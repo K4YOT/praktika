@@ -25,11 +25,11 @@ namespace AspNETApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<UserDTO>> GetUser(int userId)
+        public ActionResult<List<UserDTO>> GetUser(int user_id)
         {
             try
             {
-                var user = _IUser.GetUser(userId);
+                var user = _IUser.GetUser(user_id);
                 if (user.Count == 0)
                 {
                     return NotFound("Пользователь не найден.");
@@ -82,11 +82,11 @@ namespace AspNETApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<string>> UpdateUser(int userId, [FromBody] UserUpdate user)
+        public ActionResult<List<string>> UpdateUser(int user_id, [FromBody] UserUpdate user)
         {
             try
             {
-                var result = _IUser.UpdateUser(userId, user);
+                var result = _IUser.UpdateUser(user_id, user);
                 if (result.Contains("не найден"))
                 {
                     return NotFound(result);

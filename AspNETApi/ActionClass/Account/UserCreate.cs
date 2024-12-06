@@ -5,15 +5,12 @@ namespace AspNETApi.ActionClass.Account
     public class UserCreate
     {
         [Required]
-        public string Name { get; set; }
+        public string full_name { get; set; }
 
         [Required]
-        public string Surname { get; set; }
+        public string polic { get; set; }
 
         [Required]
-        public string Login { get; set; }
-
-        [Required]
-        public string Password { get; set; }
+        public string password { get; set; }
     }
 }
